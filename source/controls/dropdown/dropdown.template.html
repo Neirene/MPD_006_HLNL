@@ -1,0 +1,16 @@
+<div class="raet-dropdown" tabindex="0" data-ng-keyup="key($event.keyCode)">
+    
+    <i class="raet-dropdown__icon fa fa-{{icon}}" data-ng-if="icon" data-raet-id="{{raetId}}Icon"></i>
+    <span class="raet-dropdown__text" data-ng-if="text" data-raet-id="{{raetId}}Text">{{text}}</span>
+  
+    <ul class="raet-dropdown__list" data-ng-class="{'is-hidden': isHidden}" data-raet-id="{{raetId}}List">
+        <li 
+            data-ng-repeat="item in list track by $index"            
+            data-ng-class="{'active': active == $index}"
+            data-ng-click="key(keys.enter)" 
+            data-ng-mouseover="setActive($index)"
+            data-raet-id="{{raetId}}Item{{$index}}">
+            <a>{{item.text}}</a>
+        </li>
+    </ul>
+</div>

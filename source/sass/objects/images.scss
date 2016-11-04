@@ -1,0 +1,5 @@
+$images_path: "../../img" !default;
+
+.raet_logo {
+    background-image: url(#{$images_path}/raet_logo.png);
+}

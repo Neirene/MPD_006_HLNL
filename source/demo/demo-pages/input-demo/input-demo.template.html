@@ -1,0 +1,16 @@
+<div ng-controller="raetInputDemo">
+    <div class="grid">
+        <div class="grid__row">
+            <raet-input class="grid__cell--50" data-ng-model="vmText" data-ng-change="myChangeFunction(model)" data-display-name="Input:">
+            </raet-input>
+        </div>
+        <div class="grid__row">
+            <raet-input class="grid__cell--50" data-ng-model="vmTextDisabled" disabled="true" data-display-name="Input disabled">
+            </raet-input>
+        </div>
+        <div class="grid__row">
+            <raet-input class="grid__cell--50" data-ng-model="vmTextError" data-display-name="Input with error" data-error="{{errorMessage}}">
+            </raet-input>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<label class="textarea" data-ng-class="{'textarea--error': error}">
+    <raet-label
+        data-label="{{label}}"
+        data-is-required="isRequired"
+        data-locked="locked"
+        data-raet-id="TextAreaLabel{{raetId}}">
+    </raet-label>
+    <textarea
+        data-ng-model="ngModel"
+        maxlength="{{max}}"
+        rows="{{rows || 8}}"
+        data-ng-disabled="isDisabled"
+        data-ng-required="isRequired"
+        data-raet-id="TextArea{{raetId}}"
+        data-ng-change="error = undefined"
+        class="textarea__control">
+    </textarea>
+    <span
+        data-ng-if="max && !error"
+        class="textarea__max"
+        data-ng-bind-html="(max - ngModel.length != 1
+            ? (textCharacters || ('charactersCount' | raetUiTranslate) )
+            : (textCharacter || ('characterCount' | raetUiTranslate) )) 
+            | format:'<em>{0}</em>' | format:(max-ngModel.length)">
+    </span>
+    <span data-ng-if="error" class="textarea__error-message">{{error}}</span>
+</label>

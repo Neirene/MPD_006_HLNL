@@ -1,0 +1,61 @@
+@import '../../sass/_common';
+
+$select-height: sp(5);
+
+.select {
+    width: 100%;
+
+    &__wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        &::after {
+            position: absolute;
+            content: '\f107';// TODO when select is opened Up: \f106
+            font-size: ms(5);
+            font-family: $font-icon;
+            right: sp(2);
+            
+            pointer-events: none;
+            line-height: sp(5) - ms(5);
+
+            @include rtl {
+                right: auto;
+                left: sp(2);
+            }
+        }
+    }
+    
+    &__control {
+        background: white;
+        border: 1px solid $color-stone;
+        height: sp(5);
+        flex: 100%;
+        padding: 0 sp(5) 0 sp(2);
+        font-weight: $font-light;
+        appearance: none;
+        border-radius: 0;
+        outline: none;
+
+        @include rtl {
+            padding: 0 sp(2) 0 sp(5);
+        }
+
+        &:focus {
+            border: 1px solid $color-brand;
+        }
+
+        &::-ms-expand { display:none; }
+
+        & .select__option{ width: 100%; }
+
+        .select--error & {
+            border: 1px solid $color-alert;
+        }
+    }
+
+    &__error-message {
+        @include error-message;
+    }
+}

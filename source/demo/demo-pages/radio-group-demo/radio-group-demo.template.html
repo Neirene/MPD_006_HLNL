@@ -1,0 +1,64 @@
+<div ng-controller="raetRadioGroupDemo">
+    <div class="grid">
+        <div class="grid__row">
+            <div class="grid__cell--25">
+                <raet-radio-group
+                    data-ng-model="vmOption1"
+                    data-options="vmOptions"
+                    data-label="Default">
+                </raet-radio-group>
+            </div>
+            <div class="grid__cell--25">
+                <raet-radio-group
+                    data-ng-change="myChangeFunction(model)"
+                    data-ng-model="vmOption2"
+                    data-is-disabled="true"
+                    data-options="vmOptions"
+                    data-label="Disabled">
+                </raet-radio-group>
+            </div>
+            <div class="grid__cell--25">
+                <raet-radio-group
+                    data-ng-change="myChangeFunction(model)"
+                    data-ng-model="vmOption3"
+                    data-error="This is an error message."
+                    data-options="vmOptions"
+                    data-label="With error">
+                </raet-radio-group>
+            </div>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="grid__row">
+            <div class="grid__cell--25">
+                <raet-radio-group
+                    data-inline="true"
+                    data-ng-change="myChangeFunction(model)"
+                    data-ng-model="vmOption4"
+                    data-options="vmOptions"
+                    data-label="Default Inline">
+                </raet-radio-group>
+            </div>
+            <div class="grid__cell--25">
+                <raet-radio-group
+                    data-inline="true"
+                    data-ng-change="myChangeFunction(model)"
+                    data-ng-model="vmOption5"
+                    data-is-disabled="true"
+                    data-options="vmOptions"
+                    data-label="Disabled Inline">
+                </raet-radio-group>
+            </div>
+            <div class="grid__cell--25">
+                <raet-radio-group
+                    data-inline="true"
+                    data-ng-change="myChangeFunction(model)"
+                    data-ng-model="vmOption6"
+                    data-error="This is an error message."
+                    data-options="vmOptions"
+                    data-label="With error Inline">
+                </raet-radio-group>
+            </div>
+        </div>
+    </div>
+</div>

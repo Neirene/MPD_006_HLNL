@@ -1,0 +1,77 @@
+<div class="table">
+
+    <raet-select
+         data-raet-id="Table{{vm.raetId}}OrderBy"
+         data-ng-model="vm.orderedByFields[0]"
+         data-options-list="vm.orderByFieldsOptions"
+         data-ng-if="!vm.isTableEmpty()"
+         class="table__select"></raet-select>
+
+    <table>
+        <thead data-ng-if="!vm.isTableEmpty()">
+            <tr>
+                <th data-ng-repeat="definition in vm.getDisplayedColumnDefinitions()">
+                    <raet-table-content aria-sort="{{vm.ariaSortCriteriaDictionary[definition.field]}}"
+                         data-ng-click="!definition.disableSorting && vm.orderBy(definition.field)"
+                         data-raet-id="Table{{vm.raetId}}HeaderColumn{{definition.field}}"
+                         data-raet-table-content-text="definition.displayName"
+                         data-raet-table-content-filter="definition.headerFilter"
+                         data-raet-table-content-template="definition.headerTemplate"
+                         data-raet-table-content-sort="vm.ariaSortCriteriaDictionary[definition.field]">
+                    </raet-table-content>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="item in vm.data | orderBy: vm.orderedByFields track by $index" data-ng-show="$index < vm.visibleRows" data-ng-init="rowIndex = $index"
+                data-raet-id="Table{{vm.raetId}}Row{{rowIndex}}"
+                data-raet-table-add-row="raet-temporal-row"
+                data-ng-click="vm.configuration.clickOnRowCallback(rowIndex, item)"
+                data-ng-class="{'hasClick': vm.hasClickOnRowCallback}"
+                data-col-span="{{vm.getDisplayedColumnDefinitions().length}}">
+
+                <td data-ng-repeat="definition in vm.getDisplayedColumnDefinitions()" data-content="{{definition.displayName}}" data-raet-id="{{'RowIndex' + rowIndex + 'CellColum' + definition.field}}">
+
+                    <div>
+                        <raet-table-content data-ng-if="!definition.action"
+                             data-raet-table-content-text="item[definition.field]"
+                             data-raet-table-content-filter="definition.cellFilter"
+                             data-raet-table-content-template="definition.cellTemplate"
+                             data-raet-table-content-item="item"
+                             data-raet-table-content-definition="definition"
+                             data-raet-id="Table{{::vm.raetId}}Row{{::rowIndex}}CellColumn{{::definition.field}}">
+                        </raet-table-content>
+                        <div data-ng-if="definition.action" data-ng-click="definition.actionCallback(rowIndex, item)" class="table__action" data-raet-id="Table{{vm.raetId}}RowAction{{rowIndex}}">
+                            <i data-ng-if="definition.action == 'add'" class="fa fa-plus"></i>
+                            <i data-ng-if="definition.action == 'remove'" class="fa fa-times"></i>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+            <tr data-ng-if="vm.isTableEmpty()">
+                <td class="table__empty" data-raet-id="Table{{vm.raetId}}Empty">
+                    {{vm.configuration.emptyTableMessage}}
+                </td>
+            </tr>
+        </tbody>
+        <tfoot class="table__footer">
+             <tr class="table__footer-content" data-ng-if="vm.isFooterDisplayed()">
+                <td data-ng-repeat="value in vm.footer">
+                    {{value}}
+                </td>
+            </tr>            
+            <tr class="table__footer-action" data-ng-if="!vm.isTableEmpty() && (vm.data.length > vm.configuration.pageSize)" data-ng-class="{'table--all-displayed' : vm.isShowLessButtonDisplayed()}">
+                <td colspan="100%">
+                    <a data-ng-if="vm.isShowAllButtonDiplayed()" data-ng-click="vm.visibleRows = vm.data.length" class="link link--card" data-raet-id="Table{{vm.raetId}}ShowAll">{{textShowAll || ( 'ShowAll' | raetUiTranslate ) }} ({{vm.data.length}})</a>
+                    <a data-ng-if="vm.isShowLessButtonDisplayed()" data-ng-click="vm.visibleRows = vm.configuration.pageSize" class="link link--card" data-raet-id="Table{{vm.raetId}}ShowLess">{{textShowLess || ( 'ShowLess' | raetUiTranslate ) }}</a>
+                </td>
+            </tr>
+            <tr class="table__footer-action" data-ng-repeat="action in vm.configuration.footerActions">
+                <td colspan="100%">
+                    <a data-ng-click="action.callback()" class="link link--card" data-raet-id="Table{{vm.raetId}}FooterAction{{$index}}">{{action.displayName}}</a>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

@@ -1,0 +1,39 @@
+<raet-label
+        data-label="{{vm.displayName}}"
+        data-is-required="vm.isRequired"
+        data-locked="vm.locked"
+        data-raet-id="AutocompleteLabel{{vm.raetId}}">
+</raet-label>
+<div class="raet-autocomplete"  data-ng-class="{'autocomplete--error': vm.error}">
+    <span class="raet-autocomplete__search">
+        <i class="fa fa-search" data-ng-class="{'is-disabled': vm.isDisabled}"></i>
+        <input data-ng-model="vm.val"
+                data-ng-focus="vm.open()"
+                data-ng-blur="vm.close()"
+                data-ng-keyup="vm.key($event.keyCode)"
+                data-ng-required="vm.isRequired"
+                data-ng-disabled="vm.isDisabled"
+                data-raet-id="AutocompleteInput{{vm.raetId}}Id" />
+        <a class="raet-autocomplete__reset"
+            data-ng-click="vm.reset()"
+            data-ng-show="vm.val"
+            data-raet-id="AutocompleteReset{{vm.raetId}}Id">
+            <i class="fa fa-close"></i>
+        </a>
+    </span>
+    <span data-ng-if="vm.buttonAfter" data-ng-click="vm.buttonAction()" class="addon">
+        <i class="fa fa-{{vm.buttonAfter}}"></i>
+    </span>    
+    <ul class="raet-autocomplete__list"
+        data-ng-class="vm.isHidden">
+        <li data-ng-repeat="opt in vm.tmpList"
+            data-ng-mousedown="vm.select(opt);"
+            data-ng-mouseover="vm.activate($index)"
+            data-ng-class="opt.active"
+            data-ng-bind-html="opt.highlight"
+            data-raet-id="AutocompleteItem{{vm.raetId}}{{$index}}Id">
+        </li>
+    </ul>
+    
+</div>
+<span data-ng-if="vm.error" class="raet-autocomplete__error-message" data-raet-id="OutputError{{raetId}}">{{vm.error}}</span>

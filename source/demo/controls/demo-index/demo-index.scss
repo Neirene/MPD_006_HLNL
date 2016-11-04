@@ -1,0 +1,11 @@
+.demo-index {
+    .demo-index__code {
+        background: white;
+        overflow: auto;
+        padding: sp(2);
+        border: 1px solid gray;
+    }
+    .demo-index__example {
+        position: relative;
+    }
+}

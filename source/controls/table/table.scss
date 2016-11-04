@@ -1,0 +1,160 @@
+@import '../../sass/_common';
+
+.table {
+    margin: 0;
+
+    &__action {
+        text-align: right;
+
+        i {
+            cursor: pointer;
+
+            &:hover {
+                color: $color-brand;
+            }
+        }
+
+        @include rtl {
+            text-align: left;
+        }
+
+        @include medium {
+            text-align: left;
+
+            @include rtl {
+                text-align: right;
+            }
+        }
+    }
+
+    &__select {
+        display: none;
+        padding: sp(2) 0;
+
+        @include medium {
+            display: block;
+        }
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        font-size: ms(-1);
+        background: $color-white;
+
+        thead {
+            th {
+                text-transform: uppercase;
+                font-weight: $font-medium;
+                text-align: left;
+
+                @include rtl {
+                    text-align: right;
+                }
+
+                i.fa {
+                    margin-left: sp(1);
+
+                    @include rtl {
+                        margin-left: 0;
+                        margin-right: sp(1);
+                    }
+                }
+
+                > *[aria-sort] {
+                    cursor: pointer;
+                }
+
+                > *[aria-sort = 'ascending'],
+                > *[aria-sort = 'descending'] {
+                    color: $color-brand;
+                }
+
+                .picker & {
+                    background: $color-calypso;
+                    padding: sp(1);
+                }
+            }
+
+            @include medium {
+                display: none;
+            }
+        }
+
+        tr {
+            border-bottom: 1px solid $color-platinum;
+        }
+
+        th, td {
+            padding: sp(2);
+        }
+
+        tbody {
+            tr {
+                overflow: hidden;
+
+                &.hasClick:hover {
+                    background: $color-brand-shade;
+                    cursor: pointer;
+                }
+
+                .picker &:last-child {
+                    border-bottom: 0;
+                }
+
+                td {
+                    font-weight: $font-light;
+
+                    @include medium {
+                        position: relative;
+                        display: block;
+                        padding-left: 50%;
+
+                        &:before {
+                            position: absolute;
+                            left: 0;
+                            display: block;
+                            width: 49%;
+                            padding: 0 sp(2);
+                            content: attr(data-content);
+                            font-weight: 400;
+                            text-transform: uppercase;
+                        }
+                    }
+
+                    &.table__empty {
+                        background: $color-warning-light;
+                        padding: sp(1);
+                    }
+                }
+            }
+        }
+    }
+
+    &__footer-content {
+        td {
+            font-weight: $font-medium;
+            background: $color-light-gray;
+        }
+    }
+
+    &__footer-action {
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        .picker &.table--all-displayed{
+            border-top: 1px solid $color-stone;
+        }
+    }
+
+    .picker & {
+        padding: 0;
+        margin: 0;
+    }
+}

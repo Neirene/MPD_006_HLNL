@@ -1,0 +1,9 @@
+{
+  "author": "Raet",
+  "main": "main/index.js",
+  "style": "main/index.css",
+  "typings": "main/index.d.js",
+  "publishConfig": {
+    "registry": "https://www.myget.org/F/raet-ui/npm/"
+  }
+}

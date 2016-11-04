@@ -1,0 +1,12 @@
+<div class="raet-notification raet-notification--{{vm.mode}} {{vm.isVisible}}" data-raet-id="RaetNotification{{vm.raetId}}">
+    <span class="raet-notification__icon">
+        <i class="fa fa-{{vm.icon}}"></i>
+    </span>
+    <span class="raet-notification__text">
+        {{vm.text}}
+        <ul data-ng-if="vm.list" class="raet-notification__list">
+            <li data-ng-repeat="item in vm.list track by $index">{{item}}</li>
+        </ul>
+    </span>
+    <i class="raet-notification__close fa fa-close" data-ng-if="vm.closable" data-ng-click="vm.close()"></i>
+</div>

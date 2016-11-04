@@ -1,0 +1,41 @@
+<div class="demo-index">
+    <div class="menu">
+
+        <div class="menu__header">
+            <a>
+                <span class="raet_logo"></span>
+            </a>
+        </div>
+
+        <div class="menu__body">
+            <ul class="menu__group">
+                <li class="menu__item" ng-repeat="control in controls | orderBy:'name'">
+                    <a href="#{{control.name}}" ng-class="{selected: control == $parent.control()}">{{control.title}}</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="menu__footer">
+            <div class="menu__logo">
+                <a href="http://www.raet.com">
+                    <span class="raet_logo"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <h1>{{control().title}}</h1>
+    {{control().description}}
+
+    <h2>Example</h2>
+
+    <div ng-view class="demo-index__example"></div>
+    <div ng-hide="control().hideHtml">
+        <h2>HTML</h2>
+        <pre class='demo-index__code'>{{$route.current.locals.$template}}</pre>
+    </div>
+    <div ng-hide="control().hideScope">
+        <h2>Scope</h2>
+        <pre class='demo-index__code'>{{demoScopeProps() | json}}</pre>
+    </div>
+</div>

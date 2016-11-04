@@ -1,0 +1,33 @@
+@import '../../sass/_common';
+
+[raet-label] {
+    width: 100%;
+}
+
+.raet-label {
+    display: inline-block;
+    width: 100%;
+    color: $color-jasper;
+    margin-bottom: sp(1);
+    text-transform: uppercase;
+    font-weight: $font-medium;
+    font-size: ms(-1);
+    min-height: 22px;
+
+    &__text.required:after {
+        content: '*';
+        margin-left: 3px;
+    }
+
+    &__icon {
+        margin-left: 7px;
+
+        i.fa-lock {
+            color: $color-stone;
+        }
+
+        i.fa-unlock-alt {
+            color: $color-brand;
+        }
+    }
+}

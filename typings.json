@@ -1,0 +1,10 @@
+{
+  "name": "raet-ui",
+  "dependencies": {},
+  "globalDependencies": {
+    "angular": "registry:dt/angular",
+    "angular-mocks": "registry:dt/angular-mocks",
+    "jasmine": "registry:dt/jasmine",
+    "jquery": "registry:dt/jquery"
+  }
+}

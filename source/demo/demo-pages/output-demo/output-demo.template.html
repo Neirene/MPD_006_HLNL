@@ -1,0 +1,55 @@
+<div class="grid">
+    <div class="grid__row">
+        <div class="grid__cell--33">
+            <raet-output 
+                data-label="Single line"
+                data-content="This is content in a single line">
+            </raet-output>
+        </div>
+        <div class="grid__cell--50">
+            <raet-output 
+                data-label="Single line (Previous)"
+                data-content="This is content in a single line"
+                data-previous="This was the previous content"
+                data-error="">
+            </raet-output>
+        </div>            
+    </div>
+    <div class="grid__row">
+        <div class="grid__cell--33">
+            <raet-output 
+                data-label="Multi line"
+                data-multi-content="['1st line', '2nd line', '3rd line']">
+            </raet-output>
+        </div>
+        <div class="grid__cell--50">
+            <raet-output 
+                data-label="Multi line (Previous)"
+                data-multi-content="['1st line', '2nd line', '3rd line']"
+                data-previous="Multi line content will be displayed in a single line here">
+            </raet-output>
+        </div>
+    </div>
+    <div class="grid__row">
+        <div class="grid__cell--33">
+            <raet-output 
+                data-label="Undefined content">
+            </raet-output>
+        </div>
+        <div class="grid__cell--50">
+            <raet-output 
+                data-label="Undefined content (Previous)"
+                data-previous="Had this content">
+            </raet-output>
+        </div>
+    </div>
+    <div class="grid__row">
+        <div class="grid__cell--33">
+            <raet-output 
+                data-label="Has an error"
+                data-content="This is some content"
+                data-error="This is an error message.">
+            </raet-output>
+        </div>
+    </div>
+</div>

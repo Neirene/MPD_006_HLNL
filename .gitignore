@@ -1,0 +1,13 @@
+/coverage
+/dist
+/node_modules
+/source/**/*.css
+/source/**/*.js
+!/source/lib/**/*
+/source/**/*.map
+/source/**/*.d.ts
+/source/**/*.template.ts
+/source/fonts/font-awesome
+/typings
+/*.log
+/npm-debug.log.*

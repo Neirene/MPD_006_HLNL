@@ -1,0 +1,193 @@
+@import '../../sass/_common';
+
+$menu-width: 250px !default;
+$menu-padding: sp(2) !default;
+$menu-footer-height: sp(12) !default;
+$menu-toggle-height: 250px !default; // Menu list can't have more than 250px height
+
+%hover {
+    background: $color-white;
+    transition: background .3s ease-in-out;
+    cursor: pointer;
+
+    &.selected,
+    &:hover {
+        color: $color-black;
+        background: $color-brand-shade;
+    }
+
+    &.selected {
+        font-weight: $font-medium;
+    }
+}
+
+.menu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background: $color-white;
+    width: $menu-width;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    font-weight: $font-light;
+    transition: margin-left .3s ease-in-out;
+    padding-bottom: $menu-footer-height;
+    overflow: auto;
+    -ms-overflow-style: none; /* Hide scroll in IE */
+
+    @include rtl {
+        right: 0;
+    }
+
+    @include large {
+        margin-left: -$menu-width;
+
+        @include rtl {
+            margin-right: -$menu-width;
+        }
+
+        body.menu--opened & {
+            margin-left: 0;
+
+            @include rtl {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .raet_logo {
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-position: top left;
+        background-size: contain;
+    }
+
+    &__header {
+        margin: sp(3) $menu-padding sp(1);
+
+        .raet_logo {
+            height: 30px;
+            width: 66px;
+        }
+    }
+
+    &__body {
+        flex: 1;
+    }
+
+    &__group {
+        padding: $menu-padding 0;
+        border-bottom: solid 1px $color-platinum;
+        list-style: none;
+        margin: 0;
+
+        @include medium {
+            padding: sp(1) 0;
+        }
+
+        &--toggle {
+            max-height: $menu-toggle-height;
+            opacity: 1;
+            transition: .3s ease-in-out;
+
+            .menu__footer.closed & {
+                max-height: 0;
+                opacity: 0;
+                padding: 0;
+                border-bottom: 0;
+            }
+        }
+    }
+
+    &__item {
+        a {
+            display: flex;
+            align-items: center;
+            font-size: ms(0);
+            color: $color-black;
+            padding: sp(1) $menu-padding;
+
+            @extend %hover;
+
+            span {
+                flex: 1;
+            }
+
+            i {
+                font-size: sp(2);
+                color: $color-brand;
+            }
+        }
+    }
+
+    &__footer {
+        position: fixed;
+        bottom: 0;
+        width: $menu-width;
+        background: $color-white;
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+        padding: $menu-padding;
+        cursor: pointer;
+        border-top: 1px solid $color-platinum;
+        border-bottom: 1px solid $color-platinum;
+        color: $color-black;
+
+        @extend %hover;
+
+        > :first-child {
+            flex: 1;
+            font-weight: $font-medium;
+            transition: font-weight .3s ease-in-out;
+            
+            .menu__footer.closed & {
+                font-weight: $font-light;
+            }
+        }
+
+        i {
+            font-size: ms(3);
+        }
+
+        i.fa-angle-up {
+            transform: rotate(180deg);
+            transition: transform .3s ease-in-out;
+
+            .menu__footer.closed & {
+                transform: rotate(0deg);
+            }
+        }
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        background: $color-platinum;
+        text-align: center;
+        height: 45px;
+
+        a {
+            display: block;
+            width: $menu-width;
+
+            .raet_logo {
+                height: 20px;
+                width: 44px;
+            }
+        }
+    }
+
+    a {
+        text-decoration: none;
+        outline: none;
+    }
+}

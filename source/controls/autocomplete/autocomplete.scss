@@ -1,0 +1,113 @@
+@import '../../sass/_common';
+.raet-autocomplete {
+    position: relative;
+    display: flex;
+    width: 100%;
+    color: $color-black;
+
+    &__search {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: inherit;
+        i.fa-search {
+            position: absolute;
+            left: sp(2);
+            font-size: 16px;
+            color: $color-black;
+
+            &.is-disabled {
+                color: $color-stone;
+                cursor: not-allowed;
+            }
+
+            @include rtl {
+                right: sp(2);
+                left: auto;
+            }
+        }
+        input {
+            flex: 1;
+            padding: 12px sp(5);
+            width: inherit;
+            height: sp(5);
+            box-sizing: border-box;
+            border-width: 1px;
+            border-style: solid;
+            border-color: $color-stone;
+            &:focus {
+                outline: none;
+                border-color: $color-brand;
+            }
+            &:disabled {
+                border-color: $color-silver;
+                color: $color-stone;
+                background: $color-white;
+                cursor: not-allowed;
+            }
+            .autocomplete--error & {
+                border: 1px solid $color-alert;
+            }
+        }
+    }
+    &__reset {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: sp(2);
+        cursor: pointer;
+        font-size: 14px;
+        @include rtl {
+            right: auto;
+            left: sp(2);
+        }            
+    }
+    
+    &__list {
+        $list-size: 7 !default;
+        position: absolute;
+        width: inherit;
+        max-height: sp(6) * $list-size;
+        left: 0;
+        margin-top: sp(5);
+        padding: 0;
+        background: $color-white;
+        border: 1px solid $color-stone;
+        border-top: none;
+        box-shadow: 0 1px 4px $color-silver;
+        transition: .2s ease-in-out;
+        overflow-y: auto;
+        box-sizing: border-box;
+        z-index: 1;
+        -ms-overflow-style: scrollbar;
+        &.is-hidden {
+            visibility: hidden;
+            opacity: 0;
+            margin-top: sp(-1);
+        }
+        @include medium {
+            max-height: none;
+            overflow-y: hidden;
+        }
+        li {
+            padding: sp(2);
+            line-height: sp(2);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            &.active {
+                background: $color-brand-shade;
+                cursor: pointer;
+            }
+            em {
+                color: $color-brand;
+                font-weight: $font-medium;
+                font-style: normal;
+            }
+        }
+    }
+    &__error-message {
+        @include error-message;
+    }
+}

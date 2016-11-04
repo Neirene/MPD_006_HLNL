@@ -1,0 +1,12 @@
+@import '../../../sass/_common';
+
+body {
+    margin: sp(2) sp(2) sp(2) 270px;
+    background: $color-light-gray;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    overflow-x: hidden;
+
+    @include large {
+        margin: sp(2);
+    }
+}

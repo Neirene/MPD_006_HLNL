@@ -1,0 +1,61 @@
+@import '../_common';
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+
+    &__row {
+      display: flex;
+      flex-wrap: wrap;
+      flex: 1 0 100%;
+      margin-right: sp(-2);
+
+      @include rtl {
+          margin-right: 0;
+          margin-left: sp(-2);
+      }
+    }
+
+    @mixin size($width) {
+		width: $width;
+        box-sizing: border-box;
+        padding-bottom: sp(2);
+        padding-right: sp(2);
+
+        @include rtl {
+            padding-right: 0;
+            padding-left: sp(2);
+        }
+	}
+
+	&__cell {
+		&--100 { @include size(100%); }
+        &--75 { 
+			@include size(75%);
+			@include medium {
+				@include size(100%);
+			}
+		}
+		&--50 { 
+			@include size(50%);
+			@include medium {
+				@include size(100%);
+			}
+		}
+		&--33 { 
+			@include size(33.3%);
+			@include medium {
+				@include size(100%);
+			}
+		}
+		&--25 { 
+			@include size(25%);
+			@include large {
+				@include size(50%);
+			}
+			@include small {
+				@include size(100%);
+			}
+		}
+    }
+}

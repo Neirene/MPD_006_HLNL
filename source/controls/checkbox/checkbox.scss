@@ -1,0 +1,102 @@
+@import '../../sass/_common';
+
+.checkbox {
+    width: 100%;
+    position: relative;
+    margin: sp(1) 0;
+    cursor: pointer;
+    padding: 0;
+
+    input[type=checkbox] {
+        position: absolute;
+        margin: 0;
+        opacity: 0;
+    }
+
+    &__text {
+        padding-left: sp(1);
+        position: relative;
+        bottom: sp(.5);
+
+        @include rtl {
+            padding-left: 0;
+            padding-right: sp(8);
+        }
+    }
+
+    &__box {
+        position: relative;
+        background: $color-white;
+        display: inline-block;
+
+        &::before {
+            content: '';
+            display: block;
+            width: sp(2);
+            height: sp(2);
+            border: 1px solid $color-stone;            
+        }
+
+        input {
+            transition: .2 ease-in-out;
+        }
+
+        input:focus ~ &::before,
+        input:hover:not(:disabled) ~ &::before{
+            border: 1px solid $color-brand;
+        }
+
+        &::after {
+            content: '\f00c';
+            font-family: $font-icon;
+            font-size: ms(0);
+            width: sp(2);
+            line-height: sp(2);
+            color: $color-brand;
+            transform: scale(0);
+            position: absolute;
+            bottom: 0;
+            left: 1px;
+            transition: all 0.2s ease-out;
+        }
+    }
+
+    &--checked {
+        .checkbox__box::before,
+        .checkbox__box:hover::before {
+            border: 1px solid $color-brand;
+            background: $color-brand-shade;
+        }
+
+        .checkbox__box:after {
+            transform: scale(1);
+        }
+    }
+
+    &--disabled {
+        cursor: not-allowed;
+
+        .checkbox__box {
+            border: 1px solid $color-silver;
+            background: $color-white;
+
+            &::before, 
+            &::after {
+                color: $color-silver;                
+            }
+
+            &::before {
+                border: none;
+                background: $color-white;
+            }
+
+            &::after {
+                transform: scale(1);
+            }
+        }
+    }
+
+    &__error-message {
+        @include error-message;       
+    }
+}

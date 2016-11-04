@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Raet UI Library Demo</title>
+        <meta charset="utf-8" />
+        <link type="text/css" rel="stylesheet" href="/source/main/index.css" />
+        <link type="text/css" rel="stylesheet" href="/source/demo/main/index.css" />
+        <script src="/node_modules/angular/angular.min.js"></script>
+        <script src="/node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="node_modules/angular-route/angular-route.js"></script>
+        <script src="/node_modules/systemjs/dist/system.src.js"></script>
+        <script>
+            // set our baseURL reference path
+            SystemJS.config({
+                baseURL: '/',
+                transpiler: "ts",
+                packages: {
+                    "ts": {
+                        "main": "plugin.js"
+                    },
+                    "typescript": {
+                        "main": "typescript.js",
+                        "meta": {
+                            "typescript.js": {
+                                "exports": "ts"
+                            }
+                        }
+                    },
+                    "source": {
+                        "defaultExtension": "ts",
+                        "meta": {
+                            "*.ts": {
+                                "loader": "ts"
+                            }
+                        }
+                    }
+                },
+                map: {
+                    "ts": "node_modules/plugin-typescript/lib/",
+                    "typescript": "node_modules/typescript/lib/"
+                }
+            });
+            SystemJS.import('source/demo/main/index');
+        </script>
+    </head>
+
+    <body ng-controller="demoController">
+        <raet-demo-index></raet-demo-index>
+    </body>
+
+</html>

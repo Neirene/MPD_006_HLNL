@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Raet UI Library Demo</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link type="text/css" rel="stylesheet" href="/source/main/index.css" />
+        <link type="text/css" rel="stylesheet" href="/source/demo/main/index.css" />
+        <script src="/node_modules/angular/angular.min.js"></script>
+        <script src="/node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="node_modules/angular-route/angular-route.js"></script>
+        <script src="/node_modules/systemjs/dist/system.src.js"></script>
+        <script>
+            // set our baseURL reference path
+            SystemJS.config({
+                baseURL: '/',
+                packages: {
+                    "source": {
+                        "defaultExtension": "js"
+                    }
+                }
+            });
+            SystemJS.import('source/demo/main/index');
+        </script>
+    </head>
+
+    <body ng-controller="demoController">
+        <raet-demo-index></raet-demo-index>
+    </body>
+
+</html>

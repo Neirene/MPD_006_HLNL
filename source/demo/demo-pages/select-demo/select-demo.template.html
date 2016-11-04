@@ -1,0 +1,27 @@
+<div ng-controller="raetSelectDemo">
+    <raet-select
+        data-ng-model="vmOption"
+        data-is-required="true"
+        data-options-list="vmOptions"
+        data-default-text="-- choose --"
+        data-display-name="Select"
+        data-ng-change="myChangeFunction(model)">
+    </raet-select>
+    <div>Selected value: <em>{{vmOption}}</em></div>
+    <br>
+    <raet-select
+        data-ng-model="vmOption1"
+        data-options-list="vmGroupedOptions"
+        data-default-text="-- choose --"
+        data-display-name="Grouped select">
+    </raet-select>
+    <div>Selected value: <em>{{vmOption1}}</em></div>
+    <br>
+    <raet-select
+        data-ng-model="vmOptionError"
+        data-options-list="vmOptions"
+        data-default-text="-- choose --"
+        data-display-name="Select with error"
+        data-error="This is an error message.">
+    </raet-select>
+</div>

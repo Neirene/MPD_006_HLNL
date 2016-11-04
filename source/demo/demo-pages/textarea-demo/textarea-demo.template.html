@@ -1,0 +1,16 @@
+<div ng-controller="raetTextareaDemo">
+    <div class="grid__row">
+        <raet-textarea class="textarea-demo grid__cell--50" data-ng-model="vmText" data-label="Label: {{vmText}}" data-max="50" data-rows="10"
+            data-text-character="only {0} character remaining" data-text-characters="{0} characters remaining">
+        </raet-textarea>
+    </div>
+    <div class="grid__row">
+        <raet-textarea class="textarea-demo grid__cell--50" ng-model="vmText" label="Label: {{vmText.length}}" max="100" rows="7">
+        </raet-textarea>
+    </div>
+    <div class="grid__row">
+        <raet-textarea class="textarea-demo grid__cell--50" ng-model="vmTextError" data-ng-error="errorExample" label="Label: {{vmText.length}}"
+            max="100" rows="7" data-error="{{errorMessage}}">
+        </raet-textarea>
+    </div>
+</div>

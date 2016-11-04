@@ -1,0 +1,42 @@
+@import '../../sass/_common';
+
+.textarea {
+    width: 100%;
+    font-weight: $font-light;    
+
+    &__error-message {
+        @include error-message;
+    }
+
+    &__control {
+        width: inherit;
+        padding: sp(2);
+        font-family: inherit;
+        box-sizing: border-box;
+        border: 1px solid $color-stone;
+        color: $color-black;
+
+        &:focus {
+            border: 1px solid $color-brand;
+            outline: 0;
+        }
+
+        .textarea--error & {
+            border:1px solid $color-alert !important;
+        }
+    }
+
+    &__max {
+        display: block;
+        text-align: right;
+
+        @include rtl {
+            text-align: left;
+        }
+
+        em {
+            font-weight: $font-medium;
+            font-style: normal;
+        }
+    }
+}

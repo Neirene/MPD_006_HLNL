@@ -1,0 +1,151 @@
+<div ng-controller="raetSandboxDemo" style="max-width: 993px;">
+
+<raet-notification data-text="You have successfully submited all your personal data. Wait, what?" data-mode="success" data-closable="true"></raet-notification>
+   <!-- Output Components Samples -->
+    <div class="card">
+        <div class="card__header">
+            <div class="card__title">System Data</div>
+        </div>
+        <div class="card__body grid">
+            <div class="grid__row">
+                <div class="grid__cell--33">
+                   <raet-output
+                   label="Employee ID"
+                   content="00005498784984"
+                   error="Warning: Error while attempting to generate this ID, please contact your Sys Admin"
+                   ></raet-output>          
+                </div>
+                <div class="grid__cell--33">
+                   <raet-output
+                   label="Assigned Supervisor"
+                   content="RODNEY VAN DE MEH JR."
+                   ></raet-output>    
+                </div>
+                <div class="grid__cell--33">
+                   <raet-output
+                   label="Assigned Department"
+                   content="Sales and Marketing Department Number Seventy Six"
+                   previous="Tech Support"
+                   ></raet-output>    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <div class="card__header">
+            <div class="card__title">Personal data</div>
+        </div>
+        <div class="card__body grid">
+            <div class="grid__row">
+                <div class="grid__cell--25">
+                    <raet-select data-display-name="Prefix" data-default-text="Make a selection" data-options-list="prefixOptions" data-ng-model="prefix"></raet-select>
+                </div>
+                <div class="grid__cell--25">
+                    <raet-input data-display-name="Name" data-placeholder="Insert your name" data-ng-model="name"></raet-input>
+                </div>
+                <div class="grid__cell--33">
+                    <raet-input data-display-name="Surname" data-placeholder="Insert your surname" data-ng-model="surname"></raet-input>
+                </div>
+            </div>
+
+            <div class="grid__row">
+                <div class="grid__cell--50">
+                    <raet-radio-group data-inline="true" data-label="Gender" data-options="genderOptions" data-ng-model="gender"></raet-radio-group>
+                </div>
+            </div>
+
+            <raet-notification data-text="By inserting your e-mail you agree on receiving spam every day."></raet-notification>
+
+            <div class="grid__row">
+                <div class="grid__cell--33">
+                    <raet-input data-display-name="E-mail" data-placeholder="Insert your e-mail" data-icon-before="envelope" data-ng-model="email"></raet-input>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card__header">
+            <div class="card__title">Address data</div>
+        </div>
+        <div class="card__body grid">
+            <div class="grid__row">
+                <div class="grid__cell--100">
+                    <raet-input data-display-name="Street" data-placeholder="Insert your street" data-ng-model="street"></raet-input>
+                </div>
+            </div>
+
+            <div class="grid__row">
+                <div class="grid__cell--25">
+                    <raet-input data-display-name="Number" data-placeholder="Insert your house number" data-ng-model="number"></raet-input>
+                </div>
+                <div class="grid__cell--25">
+                    <raet-input data-display-name="Floor" data-placeholder="Insert your floor" data-ng-model="floor"></raet-input>
+                </div>
+                <div class="grid__cell--25">
+                    <raet-input data-display-name="Door" data-placeholder="Insert your door" data-ng-model="door"></raet-input>
+                </div>
+            </div>
+
+            <div class="grid__row">
+                <div class="grid__cell--75">
+                    <raet-autocomplete data-display-name="Country" data-options-list="countryList" data-ng-model="country"></raet-autocomplete>
+                </div>
+            </div>
+
+            <div class="grid__row">
+                <div class="grid__cell--75">
+                    <raet-switch data-display-name="Postal Address" data-ng-model="postal">Same as home address</raet-autocomplete>
+                </div>
+            </div>
+
+            <div class="grid__row" data-ng-if="!postal">
+                <div class="grid__cell--100">
+                    <raet-input data-display-name="Street" data-placeholder="Insert your street" data-ng-model="street"></raet-input>
+                </div>
+            </div>
+
+            <div class="grid__row" data-ng-if="!postal">
+                <div class="grid__cell--25">
+                    <raet-input data-display-name="Number" data-placeholder="Insert your house number" data-ng-model="number"></raet-input>
+                </div>
+                <div class="grid__cell--25">
+                    <raet-input data-display-name="Floor" data-placeholder="Insert your floor" data-ng-model="floor"></raet-input>
+                </div>
+                <div class="grid__cell--25">
+                    <raet-input data-display-name="Door" data-placeholder="Insert your door" data-ng-model="door"></raet-input>
+                </div>
+            </div>
+
+            <div class="grid__row" data-ng-if="!postal">
+                <div class="grid__cell--75">
+                    <raet-autocomplete data-display-name="Country" data-options-list="countryList" data-ng-model="country"></raet-autocomplete>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card__header">
+            <div class="card__title">Extra data</div>
+        </div>
+        <div class="card__body grid">
+            <div class="grid__row">
+                <div class="grid__cell--75">
+                    <raet-textarea data-label="Additional info" data-placeholder="Insert any additional info" data-ng-model="additional" rows="10"></raet-textarea>
+                </div>
+            </div>
+
+            <div class="grid__row">
+                <div class="grid__cell--100">
+                    <raet-checkbox data-display-name="Notifications" data-ng-model="notifications" data-label-text="I want to receive notifications when something changes"></raet-checkbox>
+                </div>
+                <div class="grid__cell--100">
+                    <raet-checkbox data-ng-model="kittens" data-label-text="I want to receive random mails with kittens"></raet-checkbox>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

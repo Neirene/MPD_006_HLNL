@@ -1,0 +1,98 @@
+@import '../../sass/_common';
+
+$input-height: sp(5);
+
+.input {
+    width: 100%;
+
+    &__box {
+        display: flex;
+        align-items: center;
+
+        > div:first-child { width: 100%; } /* span cannot contain div! REFACTOR */
+
+        input {
+            width: 100%;
+            height: $input-height;
+            padding: 0 sp(2);
+            background: $color-white;
+            font-weight: $font-light;
+            border: 1px solid $color-stone;
+            appearance: none;
+            border-radius: 0;
+
+            &:disabled {
+                background: $color-white;
+                color: $color-stone;
+                border: 1px solid $color-silver;
+                cursor: not-allowed;
+            }
+
+            &:focus {
+                border: 1px solid $color-brand;
+                outline: none;
+            }
+
+            .input--error & {
+                border: 1px solid $color-alert !important;
+            }
+        }
+    }
+
+    &__error-message {
+        @include error-message;
+    }
+}
+
+.input--calculated{
+    color: $color-black;
+    background: $color-white;
+    padding: sp(1) sp(2);
+
+    .form__label{
+        text-transform: initial;
+        font-weight: $font-normal;
+    }
+
+    .input__box{
+        font-weight: $font-bold;
+        font-size: ms(3);
+    }
+}
+
+.input--workpattern {
+    width: sp(7);
+    margin-bottom: sp(1);
+    margin-right: sp(1);
+
+    @include rtl {
+        margin-left: sp(1);
+        margin-right: 0;
+    }
+
+    .input__box {
+        flex-wrap: wrap;
+
+        input {
+            text-align: center;
+            padding: 0 sp(1);
+        }
+
+        .addon {
+            padding: 0 16px;
+            height: auto;
+            flex: 1;
+        }
+    }
+
+     &.selected {
+         .addon--text {
+            background: $color-brand;
+            color: white;
+         }
+
+         .input__box {
+            input { background: $color-brand; }
+        }
+     }
+}

@@ -1,0 +1,30 @@
+@import '../_common';
+
+.link {
+    font-size: ms(-1);
+    color: $color-brand;
+    text-decoration: none;
+    
+    font-weight: $font-medium;
+    font-family: $font-main;
+    cursor: pointer;
+
+    &:hover { 
+        text-decoration: none;
+        color: $color-brand; // overwrite bootstrap
+    }
+
+    &--feed,
+    &--card, 
+    &--detail {
+        text-transform: uppercase;
+        font-style: normal;
+    }
+
+    &--inactive {
+        color: $color-stone;
+        &:hover{
+            color: $color-stone;
+        }
+    }
+}

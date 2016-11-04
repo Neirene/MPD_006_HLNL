@@ -1,0 +1,45 @@
+<div ng-controller="raetTranslationsDemo">
+<h3>Basic Translations</h3>
+<p>
+    To use translations you can use the default translations, but they're only English. 
+    <br /><i>The 'NotSpecified' translation: {{ 'NotSpecified' | raetUiTranslate }}</i>
+</p>
+<h3>Different Language</h3>
+<p>
+    To setup a different language we have to configure the `raetUiTranslationServiceProvider`.
+    <br /> To do so, you can use the translations provided by the `raetUiLibraryTranslations`. 
+    <br /> 
+    <pre class="demo-index__code">.config(['raetUiTranslationServiceProvider', 'raetUiLibraryTranslations', function (raetUiTranslationServiceProvider, raetUiLibraryTranslations) {
+    // Set the default language to Dutch
+    raetUiTranslationServiceProvider.translations = raetUiLibraryTranslations['nl-NL'];
+}])</pre>
+</p>
+
+<h3>Override available translations</h3>
+<p>
+    We can  <strong>override</strong> a translation for a language. 
+    <br /> To do so change the contents of the `key` from `raetUiLibraryTranslations['en-GB']['key']` 
+    <br /> 
+    <br /><i>This is the 'ToBeOverriden' translation: `{{ 'ToBeOverriden' | raetUiTranslate }}`</i>
+
+    <pre class="demo-index__code">.config(['raetUiTranslationServiceProvider', 'raetUiLibraryTranslations', function (raetUiTranslationServiceProvider, raetUiLibraryTranslations) {
+    // Override a translation from English
+    raetUiLibraryTranslations['en-GB']['ToBeOverriden'] = 'The overrided translation';
+    // Set the default language to English
+    raetUiTranslationServiceProvider.translations = raetUiLibraryTranslations['en-GB'];
+}])</pre>
+</p>
+
+<h3>Unavailable translation</h3>
+<p>
+    If a translation isn't available, it will be preceded by a `#`. 
+    <br /><i>The translation for 'NotTranslated' is `{{ 'NotTranslated' | raetUiTranslate }}`.</i>
+</p>
+
+<h3>All translatable keys</h3>
+    <i>Please be aware that <strong>ToBeOverriden</strong> is not part of the library but an example of overriding a translation.</i>
+    <raet-table
+        data-configuration="configuration"
+        data-source="translations">
+    </raet-table>
+</div>

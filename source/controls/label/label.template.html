@@ -1,0 +1,9 @@
+<span class="raet-label" data-ng-if="label">
+    <span class="raet-label__text" data-ng-class="{required: isRequired && label}" data-raet-id="Label{{raetId}}">
+        {{label}}
+    </span>
+    <span class="raet-label__icon">
+        <i class="fa fa-lock" data-ng-if="locked"></i>
+        <i class="fa fa-unlock-alt" data-ng-if="locked == false"></i>
+    </span>
+</span>

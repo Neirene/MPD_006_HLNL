@@ -1,0 +1,12 @@
+<span class="button-bar">
+    <label data-ng-repeat="option in options">
+        <input type="radio"
+               data-ng-model="$parent.ngModel"
+               data-ng-value="option.val"
+               data-ng-disabled="{{isDisabled}}"
+               data-raet-id="RadioGroup{{raetId}}{{$index}}" />
+        <button tabindex="-1">
+            <i class="fa fa-{{option.icon}}"></i>
+        </button>
+    </label>
+</span>

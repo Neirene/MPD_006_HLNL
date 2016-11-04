@@ -1,0 +1,87 @@
+@import '../../sass/_common';
+
+.switch {
+    position: relative;
+    cursor: pointer;
+    align-items: center;
+    margin: 0;
+    font-weight: $font-light;
+
+    input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+
+        &:checked + .switch__holder {
+            background: $color-brand-shade;
+            border-color: $color-brand;
+
+            .switch__icon {
+                left: 26px;
+                background: $color-brand;
+
+                @include rtl {
+                    left: auto;
+                    right: 25px;
+                }
+            }
+        }
+
+        &:focus + .switch__holder {
+            border-color: $color-brand;
+        }
+    }
+
+    &__group {
+        display: flex;
+    }
+
+    &__holder {
+        display: inline-block;
+        position: relative;
+        margin-right: sp(1);
+        min-width: sp(6);
+        height: sp(3);
+        overflow: hidden;
+        background: $color-white;
+        border: 1px solid $color-stone;
+        border-radius: sp(2);
+
+        @include rtl {
+            margin-right: 0;
+            margin-left: sp(1);
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        display: block;
+        width: 18px;
+        height: 18px;
+        background: $color-jasper;
+        border-radius: 50%;
+        transition: .15s ease-in-out;
+
+        @include rtl {
+            left: auto;
+            right: 2px;
+        }
+
+        &::before {
+            position: absolute;
+            color: $color-white;
+            top: 4px;
+            left: 5px;
+            font-size: ms(-2);
+        }
+    }
+
+    &__label {
+        line-height: sp(3);
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+    }
+}

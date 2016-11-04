@@ -1,0 +1,17 @@
+<label class="checkbox" data-ng-class="{'checkbox--checked': ngModel, 'checkbox--disabled': isDisabled}">
+    <raet-label
+          data-label="{{displayName}}"
+          data-raet-id="CheckboxLabel{{raetId}}"
+          data-is-required="isRequired"
+          data-locked="locked">
+    </raet-label>
+    <input type="checkbox"
+           data-ng-model="ngModel"
+           data-ng-change="error = undefined"
+           data-ng-disabled="{{isDisabled}}"
+           name="{{name}}"
+           data-raet-id="Checkbox{{raetId}}" />
+    <span class="checkbox__box" data-raet-id="Checkbox{{raetId}}Click"></span>
+    <span ng-if="labelText" class="checkbox__text" data-raet-id="CheckboxText{{raetId}}">{{labelText}}</span>
+</label>
+<span data-ng-if="error" class="checkbox__error-message">{{error}}</span>

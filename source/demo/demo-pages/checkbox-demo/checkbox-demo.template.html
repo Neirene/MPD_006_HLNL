@@ -1,0 +1,31 @@
+<div class="grid" ng-controller="raetCheckboxDemo">
+    <div class="grid__row">
+        <div class="grid__cell--33">
+            <raet-checkbox
+                data-ng-model="vmFlag"
+                data-display-name="Checkbox"
+                data-label-text="You agree this checkbox is awesome">
+            </raet-checkbox>
+        </div>
+    </div>
+    <div class="grid__row">
+        <div class="grid__cell--33">
+                <raet-checkbox
+                data-ng-model="vmFlag1"
+                data-is-disabled="true"
+                data-display-name="Checkbox disabled"
+                data-label-text="You agree this checkbox is awesome">
+            </raet-checkbox>
+        </div>
+    </div>
+    <div class="grid__row">
+        <div class="grid__cell--33">
+                <raet-checkbox
+                data-ng-model="vmFlag1"
+                data-error="This is an error message."
+                data-display-name="Checkbox with error"
+                data-label-text="You agree this checkbox is awesome">
+            </raet-checkbox>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+@import '../../sass/_common';
+
+.raet-output {
+    font-weight: $font-normal;
+
+    &__label .raet-label {
+        margin-bottom: 0;
+        color: $color-jasper;         
+        font-weight: $font-normal;
+        font-size: ms(0);
+        text-transform: none; 
+
+    }
+
+    &__content {
+        display: block;
+        white-space: pre-line;
+        font-size: ms(0);
+        padding-top: sp(1);
+        padding-bottom: sp(1);
+        color:$color-black;
+        line-height:18px;
+
+        &--empty {
+            color: $color-stone;
+            border-bottom:1px solid $color-stone;
+        }
+
+        &--standby {
+            border-bottom:1px solid $color-stone;
+        }
+
+        &--previous {
+            border-bottom:1px solid $color-stone;
+        }
+
+        &--error {
+            border-bottom:1px solid $color-alert;
+        }
+    }
+
+    &__previous {
+        @include helper-message;
+        display: block;
+        font-size: ms(-1);
+        padding-top:sp(1);
+        color: $color-stone;
+        
+    }
+
+    &__error-message {
+        @include error-message;
+        font-size: ms(-1);
+        color:$color-alert;
+        padding-top:sp(1);
+        
+    }
+}

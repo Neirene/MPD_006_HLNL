@@ -1,0 +1,30 @@
+<label class="input" data-ng-class="{'input--error': error}">
+    <raet-label
+          data-label="{{displayName}}"
+          data-is-required="isRequired"
+          data-locked="locked"
+          data-raet-id="{{raetId}}">
+    </raet-label>
+    <span class="input__box">
+        <span data-ng-if="textBefore" class="addon addon--text">{{textBefore}}</span>
+        <span data-ng-if="iconBefore" class="addon">
+            <i class="fa fa-{{iconBefore}}"></i>
+        </span>
+        <input type="text"
+               maxlength="{{maxLength}}"
+               data-ng-model="ngModel"
+               name="{{name}}"
+               class="basic-text"
+               data-raet-id="InputText{{raetId}}"
+               placeholder="{{placeholder}}"
+               data-ng-required="isRequired"
+               data-ng-disabled="disabled"
+               data-ng-pattern="customPattern"
+               data-ng-change="onChange()" />
+        <span data-ng-if="textAfter" class="addon addon--text">{{textAfter}}</span>
+        <span data-ng-if="iconAfter" class="addon">
+            <i class="fa fa-{{iconAfter}}"></i>
+        </span>
+    </span>
+    <span data-ng-if="error" class="input__error-message">{{error}}</span>
+</label>

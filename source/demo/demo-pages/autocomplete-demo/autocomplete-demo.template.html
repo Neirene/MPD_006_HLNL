@@ -1,0 +1,31 @@
+<div ng-controller="raetAutocompleteDemo" class="grid">
+    <div class="grid__row">
+        <div class="grid__cell--100">
+            <raet-autocomplete class="autocomplete-demo"
+                data-display-name="Autocomplete"
+                data-ng-model="vmOption"
+                data-options-list="vmOptions">
+            </raet-autocomplete>
+            <br>
+            <span ng-if="vmOption">Selected value: <em>{{vmOption}}</em></span>
+        </div>
+
+        <div class="grid__cell--100">
+            <raet-autocomplete class="autocomplete-demo"
+                data-display-name="Autocomplete disabled"
+                data-is-disabled="true"
+                data-ng-model="vmOption1"
+                data-options-list="vmOptions">
+            </raet-autocomplete>
+        </div>
+
+        <div class="grid__cell--100">
+            <raet-autocomplete class="autocomplete-demo"
+                data-ng-model="vmOptionError"
+                data-display-name="Autocomplete with error"
+                data-options-list="vmOptions"
+                data-error="{{errorMessage}}">
+            </raet-autocomplete>
+        </div>
+    </div>
+</div>

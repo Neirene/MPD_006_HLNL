@@ -1,0 +1,13 @@
+{
+  "authors": [
+    "Raet"
+  ],
+  "moduleType": "node",
+  "main": [
+    "main/index.js",
+    "main/index.css"
+  ],
+  "ignore": [
+    "**/.*"
+  ]
+}

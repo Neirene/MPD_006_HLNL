@@ -1,0 +1,25 @@
+<label class="select" data-ng-class="{'select--disabled': isDisabled, 'select--error': error}">
+    <raet-label
+          data-label="{{displayName}}"
+          data-locked="locked"
+          data-is-required="isRequired"
+          data-raet-id="SelectLabel{{raetId}}">
+    </raet-label>
+    <span class="select__wrapper">
+        <select
+            class="select__control"
+            data-ng-options="option.id as option.name group by option.group for option in optionsList"
+            data-ng-model="ngModel"
+            data-ng-required="isRequired"
+            data-ng-disabled="isDisabled"
+            data-ng-change="onChange();"
+            data-raet-id="SelectInput{{raetId}}Id">
+            <option
+                data-ng-if="defaultText"
+                value="">
+                {{defaultText}}
+            </option>
+        </select>
+    </span>
+    <span data-ng-if="error" class="select__error-message">{{error}}</span>
+</label>

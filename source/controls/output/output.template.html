@@ -1,0 +1,19 @@
+<div class="raet-output">
+    <raet-label class="raet-output__label" data-label="{{label}}" data-is-required="isRequired" data-locked="locked" data-raet-id="OutputLabel{{raetId}}">
+    </raet-label>
+    <span class="raet-output__content raet-output__content--standby" ng-class="{'raet-output__content--error':error,'raet-output__content--previous':previous}" data-ng-if="content" data-raet-id="OutputContent{{raetId}}">
+        {{content}}
+    </span>
+    <span class="raet-output__content" data-ng-if="multiContent" data-ng-repeat="value in multiContent track by $index" data-raet-id="OutputContent{{raetId+$index}}">
+        {{value}}
+    </span>
+    <span class="raet-output__content raet-output__content--empty" data-ng-if="!content && !multiContent" data-raet-id="OutputEmpty{{raetId}}">
+        {{ 'NotSpecified' | raetUiTranslate }}
+    </span>
+    <span class="raet-output__previous" data-ng-if="previous && !error" data-raet-id="OutputPrevious{{raetId}}">
+        {{ 'Previous' | raetUiTranslate }}:&nbsp;<i>{{previous}}</i>
+    </span>
+    <span class="raet-output__error-message" data-ng-if="error" data-raet-id="OutputError{{raetId}}">
+        {{error}}
+    </span>
+</div>

@@ -1,0 +1,17 @@
+<label class="switch" data-ng-class="{'disabled' : disabled}">
+    <raet-label
+          data-label="{{displayName}}"
+          data-is-required="isRequired"
+          data-locked="locked"
+          data-raet-id="SwitchLabel{{raetId}}">
+    </raet-label>    
+    <span class="switch__group">
+        <input type="checkbox" data-ng-model="ngModel" data-ng-disabled="disabled" data-raet-id="Switch{{raetId}}">
+        <span class="switch__holder" data-raet-id="Switch{{raetId}}Click">
+            <i class="switch__icon"
+               data-ng-class="{'fa fa-lock': lock && !ngModel, 'fa fa-unlock-alt': lock && ngModel }">
+            </i>
+        </span> 
+        <span class="switch__label" data-ng-transclude></span>
+    </span>
+</label>

@@ -1,0 +1,99 @@
+@import '../../../sass/_common';
+
+table {
+
+    background: white;
+    width: 100%;
+    border-spacing: sp(1);
+
+    & thead tr td {
+        padding: sp(1);
+        min-width: sp(10);
+        font-weight: $font-medium;
+        width: 25%;
+    }
+    & tbody tr td {
+        border-radius: sp(1);
+        padding: sp(2);
+    }
+}
+
+
+@mixin color-name($color){
+    background: $color;
+}
+
+
+.color-brand-dark {
+    @include color-name($color-brand-dark);
+}
+.color-brand {
+    @include color-name($color-brand);
+}
+.color-brand-light {
+    @include color-name($color-brand-light);
+}
+.color-brand-vivid {
+    @include color-name($color-brand-vivid);
+}
+.color-brand-shade {
+    @include color-name($color-brand-shade);
+}
+
+
+.color-white {
+    @include color-name($color-white);
+}
+.color-light-gray {
+    @include color-name($color-light-gray);
+}
+.color-platinum {
+    @include color-name($color-platinum);
+}
+.color-silver {
+    @include color-name($color-silver);
+}
+.color-stone {
+    @include color-name($color-stone);
+}
+.color-dusk {
+    @include color-name($color-dusk);
+}
+.color-hemlok {
+    @include color-name($color-hemlok);
+}
+.color-calypso {
+    @include color-name($color-calypso);
+}
+.color-jasper {
+    @include color-name($color-jasper);
+}
+.color-old-silver {
+    @include color-name($color-old-silver);
+}
+.color-raven {
+    @include color-name($color-raven);
+}
+.color-black {
+    @include color-name($color-black);
+}
+
+
+.color-success {
+    @include color-name($color-success);
+}
+.color-success-light {
+    @include color-name($color-success-light);
+}
+.color-alert {
+    @include color-name($color-alert);
+}
+.color-alert-light {
+    @include color-name($color-alert-light);
+}
+.color-warning {
+    @include color-name($color-warning);
+}
+.color-warning-light {
+    @include color-name($color-warning-light);
+}

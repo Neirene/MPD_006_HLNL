@@ -1,0 +1,24 @@
+@import '../../sass/_common';
+
+.raet-media {
+    display: flex;
+    align-items: center;
+
+    &__img {
+        margin-right: sp(2);
+        border-radius: 50%;
+
+        @include rtl {
+            margin-left: sp(2);
+            margin-right: 0;
+        }
+
+        &--small {
+            max-width: 40px;
+        }
+    }
+
+    &__content {
+        flex: 1;
+    }
+}

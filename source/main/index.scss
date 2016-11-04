@@ -1,0 +1,28 @@
+$fonts-path: "../fonts" !default;
+$images_path: "../img" !default;
+
+@import '../sass/generic/fonts.scss';
+
+@import '../sass/elements/elements.scss';
+
+@import '../sass/objects/addon.scss';
+@import '../sass/objects/grid.scss';
+@import '../sass/objects/images.scss';
+@import '../sass/objects/link.scss';
+
+@import '../controls/autocomplete/autocomplete.scss';
+@import '../controls/button-bar/button-bar.scss';
+@import '../controls/card/card.scss';
+@import '../controls/checkbox/checkbox.scss';
+@import '../controls/dropdown/dropdown.scss';
+@import '../controls/input/input.scss';
+@import '../controls/label/label.scss';
+@import '../controls/media/media.scss';
+@import '../controls/menu/menu.scss';
+@import '../controls/notification/notification.scss';
+@import '../controls/output/output.scss';
+@import '../controls/radio-group/radio-group.scss';
+@import '../controls/select/select.scss';
+@import '../controls/switch/switch.scss';
+@import '../controls/table/table.scss';
+@import '../controls/textarea/textarea.scss';

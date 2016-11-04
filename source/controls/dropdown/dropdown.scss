@@ -1,0 +1,103 @@
+@import '../../sass/_common';
+.raet-dropdown {
+    $arrow-size: 10px;
+
+    position: relative;
+    display: inline-block;
+    outline: none;
+    font-weight: $font-light;
+    color: $color-black;
+    user-select: none;
+
+    &__icon,
+    &__text {
+        cursor: pointer;
+    }
+
+    &__list {
+        position: absolute;
+        background: $color-white;
+        padding: 0;
+        text-align: left;
+        opacity: 1;
+        visibility: visible;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        margin-top: sp(2);        
+        list-style: none;
+        box-shadow: 0 1px 4px $color-silver;
+        border: 1px solid $color-stone;
+        z-index: 2;
+        transition: margin .2s ease-in-out,
+                    opacity .2s ease-in-out,
+                    visibility .2s ease-in-out;
+        
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -$arrow-size - 1px;
+            left: calc(50% - #{$arrow-size});
+            width: $arrow-size * 2;
+            height: $arrow-size * 2;
+            border-top: 1px solid $color-stone;
+            border-right: 1px solid $color-stone;
+            background: white;
+            transform: rotate(-45deg);
+            z-index: -1;
+        }
+
+        &.is-hidden {
+            visibility: hidden;
+            opacity: 0;
+            margin-top: sp(-1);
+
+            > li {
+                max-height: 0;
+            }
+        }
+
+        &.off-left {
+            left: -$arrow-size - 2px;
+            transform: none;
+
+            &::before {
+                left: $arrow-size - 2px;
+            }
+        }
+
+        &.off-right {
+            right: -$arrow-size - 2px;
+            left: auto;
+            transform: none;
+
+            &::before {
+                left: auto;
+                right: $arrow-size - 2px;                
+            }
+        }
+
+        > li {
+            cursor: pointer;
+            padding: sp(1) sp(2);
+            max-height: 9999px;
+            word-break: break-word;
+            transition: .2s ease-in-out;
+            text-transform: none;
+           
+            &.active {
+                background-color: $color-brand-shade;
+            }
+
+            a {
+                color: $color-black;
+
+                &:hover {
+                    color: $color-black;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

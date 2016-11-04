@@ -1,0 +1,27 @@
+@import '../_common';
+
+.addon {
+    display: flex;
+    flex: 1 0 auto;
+    background: $color-brand;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: sp(5);
+    padding: sp(2);
+    font-size: ms(-1);
+    cursor: pointer;
+
+    .fa {
+        font-size: ms(3);
+        min-width: ms(2);
+    }
+
+    &--text{
+        text-transform: uppercase;
+        background: $color-light-gray;
+        color: $color-black;
+        white-space: nowrap;
+        font-weight: $font-medium;
+    }
+}

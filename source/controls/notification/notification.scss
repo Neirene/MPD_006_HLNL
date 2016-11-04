@@ -1,0 +1,89 @@
+@import '../../sass/_common';
+
+raet-notification {
+    width: 100%;
+}
+
+.raet-notification {
+    display: flex;
+    align-items: baseline;    
+    color: $color-jasper;    
+    opacity: 0;
+    max-height: 0;
+    transition: .2s ease-in-out;
+    margin-top: sp(-2);
+    margin-bottom: sp(2);
+
+    &.is-visible {
+        opacity: 1;
+        padding: sp(1);
+        margin-top: 0;
+        max-height: 999px;
+        border-width: 1px;
+        border-style: solid;
+    }
+
+    &__icon {
+        margin-right: sp(1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        width: 21px;
+        height: 21px;
+
+        i {
+            color: $color-white;
+        }
+    }
+
+    &__text {
+        flex: 1;
+        margin-right: sp(1);
+        font-size: ms(1);
+    }
+
+    &__list {
+        list-style-type: none;
+        margin: 0;
+        padding: sp(1) sp(2);
+        font-size: ms(0);
+
+        li::before {
+            content: '- ';
+        }
+    }
+
+    &__close {
+        font-size: ms(2);
+        margin-right: sp(1);
+        cursor: pointer;
+    }
+
+    &--success {
+        border-color: $color-success;
+        background: $color-success-light;
+
+        .raet-notification__icon {
+            background: $color-success;
+        }
+    }
+
+    &--error {
+        border-color: $color-alert;
+        background: $color-alert-light;
+
+        .raet-notification__icon {
+            background: $color-alert;
+        }
+    }
+
+    &--notification {
+        border-color: $color-warning;
+        background: $color-warning-light;
+
+        .raet-notification__icon {
+            background: $color-warning;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+<raet-label
+      data-label="{{label}}"
+      data-is-required="isRequired"
+      data-locked="locked"
+      data-raet-id="RadioGroupLabel{{raetId}}">
+</raet-label>
+<span class="radio-group" data-ng-class="{'radio-group--inline': inline}">    
+    <label class="radio radio--button" data-ng-repeat="option in options track by $index">
+        <input type="radio"
+               data-ng-change="onChange();"
+               data-ng-model="$parent.ngModel"
+               data-ng-value="option.val"
+               data-ng-disabled="isDisabled || locked"
+               data-raet-id="RadioGroup{{raetId}}{{$index}}" />
+        <span class="radio__box" data-raet-id="RadioGroup{{raetId}}{{$index}}Click"></span>
+        <span class="radio__text" title="{{option.text}}" data-raet-id="RadioGroupText{{raetId}}{{$index}}">{{option.text}}</span>
+    </label>    
+</span>
+<span data-ng-if="error" class="radio-group__error-message">{{error}}</span>

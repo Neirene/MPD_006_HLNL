@@ -1,0 +1,96 @@
+@import '../../sass/_common';
+.card {
+    position: relative;
+    background: $color-white;
+    color: $color-black;
+    margin-bottom: sp(3);
+    border-radius: 2px;
+
+    &__header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: sp(3);
+        border-bottom: 1px solid $color-platinum;
+    }
+
+    &__title {
+        font-family: $font-title;
+        flex: 1;
+        font-size: ms(5);            
+        font-weight: $font-medium;
+        margin: 0;
+        @include medium {
+            flex: 100%;
+        }
+    }
+
+    &__subtitle {
+        display: block;
+        font-size: ms(1);
+        font-weight: $font-light;
+        font-family: $font-main;
+        color: $color-dusk;
+    }
+
+    &__options {
+        display: inline-flex;
+        align-items: center;
+        @include medium {
+            padding-top: sp(1);
+        }
+        > * {
+            padding-right: sp(1);
+            font-weight: $font-medium;
+            text-transform: uppercase;
+            font-size: ms(-1);
+
+            @include rtl {
+                padding-left: sp(1);
+                padding-right: 0;
+            }
+        }
+        > :last-child {
+            padding-right: 0;
+
+            @include rtl {
+                padding-left: 0;
+            }
+        }
+        .fa {
+            font-size: ms(4);
+        }
+    }
+
+    &__body {
+        padding: sp(3);
+    }
+    
+    &__footer {
+        padding: sp(3);
+        border-top: 1px solid $color-platinum;
+        background: $color-light-gray;
+    }
+}
+.card--detail {
+    margin-bottom: 0;
+
+    & + .card--detail::after,
+    & + .card--detail::before {
+        content: '';
+        background: $color-light-gray;
+        display: block;
+        height: 50px;
+        margin-top: 0;
+        @include medium {
+            height: 0;
+        }
+    }
+
+    & + .card--detail::after {
+        position: absolute;
+        top: 0;
+        margin-left: 40px;
+        border-left: 1px solid $color-platinum;
+    }
+}
